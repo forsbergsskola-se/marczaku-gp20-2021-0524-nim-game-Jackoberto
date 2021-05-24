@@ -10,5 +10,5 @@ class Nim
     void nimTwoPlayers();
 public:
     explicit Nim(int number_of_matches);
-    int run(bool withAI = true);
+    int run();
 };

@@ -1,11 +1,19 @@
 ﻿#include "Nim.h"
 #include <cstdlib>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int Nim::run(bool withAI)
+int Nim::run()
 {
+    cout << "Do you wanna play multiplayer? y/n" << endl;
+    string s = "";
+    while (s != "y" && s != "n")
+    {
+        cin >> s;   
+    }
+    const bool withAI = s == "y" ? false : true; 
     if (withAI)
         nimAI();
     else
@@ -25,10 +33,19 @@ int Nim::getPlayerNum()
     do
     {
         cout << "Pick a number to take between 1 - " << max << endl;
-        cin >> num;  
+        cin >> num;
+        if (num > 0 && num <= max)
+        {
+            return num;
+        }
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cout << "Invalid input; please re-enter." << endl;
     }
-    while (num <= 0 || num > max);
-    return num;
+    while (true);
 }
 
 void Nim::printNumberOfMatches()
