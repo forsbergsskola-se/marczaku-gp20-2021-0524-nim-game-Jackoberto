@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "ConsoleFunctions.h"
+
 using namespace std;
 
 int Nim::run()
@@ -13,6 +15,8 @@ int Nim::run()
         players_turn = !players_turn;
         number_of_matches -= players_turn ? getPlayerNum() : getAiNumber();
         printNumberOfMatches();
+        if (players_turn)
+            ConsoleFunctions::clear_console();
     }
     cout << (players_turn ? "AI" : "You") << " Won";
     return 0;
