@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <xstring>
 
 class Nim
 {
@@ -7,7 +6,9 @@ class Nim
     void printNumberOfMatches();
     int getAiNumber();
     int number_of_matches;
+    void nimAI();
+    void nimTwoPlayers();
 public:
     explicit Nim(int number_of_matches);
-    int run();
+    int run(bool withAI = true);
 };
