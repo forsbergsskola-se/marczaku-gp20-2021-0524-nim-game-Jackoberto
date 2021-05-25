@@ -13,7 +13,10 @@ int TicTacToe::run()
         cin >> s;   
     }
     const bool withAI = s == "y" ? false : true;
-    ticTacToeTwoPlayer();
+    if (withAI)
+        ticTacToeAI();
+    else
+       ticTacToeTwoPlayer();
     return 0;
 }
 
@@ -23,10 +26,13 @@ void TicTacToe::getPlayerInput(bool players_turn)
     {
         int row;
         int column;
+        cout << "Type a coordinate formatted {row} {column}" << endl;
         cin >> row >> column;
         CHECK_CONSOLE_ERROR()
-        else if (row >= 0 && row <= 2 && column >= 0 && column <= 2)
+        else if (row >= 1 && row <= 3 && column >= 1 && column <= 3)
         {
+            row -= 1;
+            column -= 1;
             if (board[row][column] != 0)
             {
                 cout << "Position Is Already Occupied; please re-enter." << endl;
@@ -38,6 +44,26 @@ void TicTacToe::getPlayerInput(bool players_turn)
         else
         {
             cout << "Invalid input; please re-enter." << endl;
+        }
+    }
+}
+
+void TicTacToe::getAIInput()
+{
+    while (true)
+    {
+        int row;
+        int column;
+        row = rand() % 3;
+        column = rand() % 3;
+        if (row >= 0 && row <= 2 && column >= 0 && column <= 2)
+        {
+            if (board[row][column] != 0)
+            {
+                continue;
+            }
+            board[row][column] = 2;
+            return;
         }
     }
 }
@@ -99,15 +125,34 @@ void TicTacToe::ticTacToeTwoPlayer()
 
 void TicTacToe::ticTacToeAI()
 {
-
+    bool players_turn = false;
+    displayBoard();
+    int winner = 0;
+    while (winner == 0)
+    {
+        players_turn = !players_turn;
+        cout << (players_turn ? "Players" : "AIs") << " Turn" << endl;
+        if (players_turn)
+            getPlayerInput(players_turn);
+        else
+            getAIInput();
+        displayBoard();
+        winner = checkWinCondition();
+    }
+    if (winner == -1)
+        cout << "It's a draw";
+    cout << (winner == 1 ? "You" : "AI") << " Won";
 }
 
 void TicTacToe::displayBoard()
 {
+    cout << "  " << "1|2|3" << endl;
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
+            if (j == 0)
+                cout << i + 1 << "|";
             cout << board[i][j];
             if (j != 2)
                 cout << "|";

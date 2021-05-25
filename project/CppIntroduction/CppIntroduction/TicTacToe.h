@@ -8,6 +8,7 @@ public:
     void getPlayerInput(bool players_turn);
     int checkWinCondition();
     void ticTacToeTwoPlayer();
+    void getAIInput();
     void ticTacToeAI();
     void displayBoard();
 };
