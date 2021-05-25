@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include "ConsoleFunctions.h"
 
 using namespace std;
 
@@ -38,11 +39,7 @@ int Nim::getPlayerNum()
         {
             return num;
         }
-        if (cin.fail())
-        {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
+        CHECK_CONSOLE_ERROR()
         cout << "Invalid input; please re-enter." << endl;
     }
     while (true);
@@ -72,6 +69,15 @@ int Nim::getAiNumber()
             aiMatches = 2;
             break;
         case 4:
+            aiMatches = 3;
+            break;
+        case 6:
+            aiMatches = 1;
+            break;
+        case 7:
+            aiMatches = 2;
+            break;
+        case 8:
             aiMatches = 3;
             break;
         default:
