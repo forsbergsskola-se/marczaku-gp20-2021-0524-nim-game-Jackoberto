@@ -154,7 +154,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BitConverter.cpp" />
     <ClCompile Include="TicTacToe.cpp" />
+    <ClInclude Include="BitConverter.h" />
     <ClInclude Include="ConsoleFunctions.h">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
