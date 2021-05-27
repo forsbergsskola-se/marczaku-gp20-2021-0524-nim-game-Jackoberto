@@ -220,6 +220,7 @@
     <ClCompile Include="ConsoleFunctions.cpp" />
     <ClCompile Include="CppIntroduction.cpp" />
     <ClCompile Include="Nim.cpp" />
+    <ClInclude Include="CodingChallenges.h" />
     <ClInclude Include="TicTacToe.h" />
   </ItemGroup>
   <ItemGroup>
