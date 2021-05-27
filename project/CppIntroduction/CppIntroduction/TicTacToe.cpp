@@ -120,7 +120,8 @@ void TicTacToe::ticTacToeTwoPlayer()
     }
     if (winner == -1)
         cout << "It's a draw";
-    cout << "Winner is Player " << winner;
+    else
+        cout << "Winner is Player " << winner;
 }
 
 void TicTacToe::ticTacToeAI()
@@ -141,7 +142,8 @@ void TicTacToe::ticTacToeAI()
     }
     if (winner == -1)
         cout << "It's a draw";
-    cout << (winner == 1 ? "You" : "AI") << " Won";
+    else
+        cout << (winner == 1 ? "You" : "AI") << " Won!";
 }
 
 void TicTacToe::displayBoard()
@@ -152,10 +154,22 @@ void TicTacToe::displayBoard()
         for (int j = 0; j < 3; j++)
         {
             if (j == 0)
-                cout << i + 1 << "|";
-            cout << board[i][j];
+                cout << i + 1 << ' ';
+            char visual;
+            switch (board[i][j])
+            {
+                case 1:
+                    visual = 'O';
+                    break;
+                case 2:
+                    visual = 'X';
+                    break;
+                default:
+                    visual = ' ';
+            }
+            cout << visual;
             if (j != 2)
-                cout << "|";
+                cout << '|';
             else
                 cout << endl;
         }
