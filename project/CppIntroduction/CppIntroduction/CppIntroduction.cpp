@@ -14,5 +14,5 @@ int main(int argc, char* argv[])
     // auto tic_tac_toe = TicTacToe();
     // auto bit_converter = BitConverter();
     // return tic_tac_toe.run();
-    Fibonacci::test(10);
+    Fibonacci::test(30);
 }

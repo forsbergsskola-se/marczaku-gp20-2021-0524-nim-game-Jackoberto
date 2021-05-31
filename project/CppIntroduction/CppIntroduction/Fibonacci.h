@@ -35,13 +35,13 @@ namespace Fibonacci
     {
         cout << "Getting " << n << "th Fibonacci number" << endl; 
         auto start = chrono::high_resolution_clock::now();
-        cout << recursively(10) << endl;
+        cout << recursively(n) << endl;
         auto stop = chrono::high_resolution_clock::now();
         auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
         cout << "Recursive Fibonacci Took " << duration.count() << " microseconds" << endl;
 
         start = chrono::high_resolution_clock::now();
-        cout << iteratively(10) << endl;
+        cout << iteratively(n) << endl;
         stop = chrono::high_resolution_clock::now();
         duration = chrono::duration_cast<chrono::microseconds>(stop - start);
         cout << "Iterative Fibonacci Took " << duration.count() << " microseconds" << endl;
