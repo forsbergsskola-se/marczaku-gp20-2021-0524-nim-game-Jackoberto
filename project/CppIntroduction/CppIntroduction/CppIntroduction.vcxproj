@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BitConverter.cpp" />
+    <ClInclude Include="Fibonacci.h" />
     <ClCompile Include="TicTacToe.cpp" />
     <ClInclude Include="BitConverter.h" />
     <ClInclude Include="ConsoleFunctions.h">
